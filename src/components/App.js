@@ -27,9 +27,7 @@ class App extends React.Component{
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
                 <h1>I have {this.state.videos.length} videos.</h1>
                 <VideoDetail />
-                <VideoList num="1"/>
-                <VideoList num="2"/>
-                <VideoList num="3"/>
+                <VideoList videos={this.state.videos}/>
             </div>
         )
     }

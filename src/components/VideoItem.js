@@ -1,13 +1,11 @@
 import React from "react";
 
-class VideoItem extends React.Component{
-    render(){
-        return(
-            <div className="ui card">
-                this is the video item.
-            </div>
-        );
-    }
-}
-
+const VideoItem = ({video}) => {
+    return (
+        <div>
+            <img src={video.snippet.thumbnails.medium.url} />
+           {video.snippet.title}
+        </div>
+    );
+};
 export default VideoItem;
