@@ -6,7 +6,6 @@
 .pnp.js
 
 #config
-/src/apis/key.json
 
 # testing
 /coverage
