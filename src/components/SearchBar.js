@@ -4,24 +4,22 @@ class SearchBar extends React.Component {
 
     state = { term: '' };
 
-    onFormSubmit = (event) => {
+    onInputChange = (event) => {
         event.preventDefault(); // keeps browser from submitting form and refreshing page automatically.
 
-        console.log(this.state.term);
-
-        this.props.onSubmit(this.state.term);
+        this.setState({term: event.target.value});
     }
 
     render() {
         return (
-            <div className="ui segment">
+            <div className="search-bar ui segment">
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
-                        <label>Image Search</label>
+                        <label>Video Search</label>
                         <input
                             type="text"
                             value={this.state.term}
-                            onChange={(e) => this.setState({ term: e.target.value })}
+                            onChange={this.onInputChange}
                         />
                     </div>
                 </form>
