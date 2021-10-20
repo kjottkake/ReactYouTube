@@ -22,6 +22,7 @@ class App extends React.Component{
 
     onVideoSelect = (video) => {
         console.log("From the app!", video);
+        this.setState({selectedVideo: video});
     };
 
     render() {
@@ -29,7 +30,7 @@ class App extends React.Component{
             <div className="ui container">
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
                 <h1>I have {this.state.videos.length} videos.</h1>
-                <VideoDetail />
+                <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList 
                     onVideoSelect={this.onVideoSelect}
                     videos={this.state.videos}
