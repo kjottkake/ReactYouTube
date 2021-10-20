@@ -6,7 +6,7 @@ import youtube from "../apis/youtube";
 
 class App extends React.Component{
 
-    state = {videos : []};
+    state = {videos : [], selectedVideo: null};
 
     onTermSubmit = async (term) => {
         // console.log(term);
@@ -20,6 +20,9 @@ class App extends React.Component{
         this.setState({videos: response.data.items});
     };
 
+    onVideoSelect = (video) => {
+        console.log("From the app!", video);
+    };
 
     render() {
         return (
@@ -27,7 +30,10 @@ class App extends React.Component{
                 <SearchBar onFormSubmit={this.onTermSubmit}/>
                 <h1>I have {this.state.videos.length} videos.</h1>
                 <VideoDetail />
-                <VideoList videos={this.state.videos}/>
+                <VideoList 
+                    onVideoSelect={this.onVideoSelect}
+                    videos={this.state.videos}
+                />
             </div>
         )
     }
